@@ -1,54 +1,35 @@
-.list {
+.HomePage {
   display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 60px 1fr;
+  background-color: skyblue;
+  grid-template-areas: "side_info header" "side_info arctic_list";
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
-  --w: 280px;
-  --n: 2;
-  gap: var(--size-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
-  );
-  margin-bottom: var(--size-gap);
-  margin-top: var(--size-gap);
+  padding: 0;
 }
 
-.listItem {
-  margin: 0;
+.SideInfo {
+  background-color: #8eb814;
+  grid-area: side_info;
 }
 
-.listItem::marker {
-  color: #e95800;
+.ArcticList {
+  background-color: aquamarine;
+  grid-area: arctic_list;
 }
 
-.listItem:nth-child(2)::marker {
-  color: #159bf3;
+.Header {
+  grid-area: header;
 }
 
-.listItem:nth-child(3)::marker {
-  color: #8eb814;
-}
-
-.listItem:nth-child(4)::marker {
-  color: #663399;
-}
-
-.listItemLink {
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.listItemDescription {
-  color: var(--color-text);
-  margin-bottom: 0;
-  margin-top: var(--space-1);
-}
-
-.textCenter {
-  text-align: center;
-}
-
-.intro {
-  max-width: none;
-  line-height: var(--line-height-loose);
+@media screen and (max-width: 780px){
+  .HomePage {
+    grid-template-columns: 100vw;
+    grid-template-rows: 100px 100vh 100vh;
+    grid-template-areas: "header" "side_info" "arctic_list";
+    height: 200vh + 100px;
+    width: 100vw;
+  }
 }
