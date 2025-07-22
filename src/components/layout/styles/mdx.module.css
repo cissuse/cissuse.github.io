@@ -1,37 +1,38 @@
-.page {
+.mdxContainer {
   display: grid;
   grid-template-columns: 250px 1fr;
   grid-template-rows: 80px 1fr;
-  grid-template-areas: "myInfo navigationBar" "myInfo articleList";
+  grid-template-areas: "articleInfo navBar" "articleInfo article";
   height: 100vh;
   width: 100vw;
 }
 
-.navigationBar {
-  grid-area: navigationBar;
+.navBar {
+  grid-area: navBar;
   padding: 10px;
   background-color: aquamarine;
 }
 
-.articleList {
-  grid-area: articleList;
+.article {
+  grid-area: article;
   padding: 10px;
   background-color: aquamarine;
 }
 
-.myInfo {
-  grid-area: myInfo;
+.articleInfo {
+  grid-area: articleInfo;
   padding: 10px;
   background-color: aquamarine;
 }
 
 @media (max-width: 600px) {
-  .page {
+  .mdxContainer {
     grid-template-rows: 80px 1fr;
     grid-template-columns: 1fr;
-    grid-template-areas: "navigationBar" "articleList";
+    grid-template-areas: "navBar" "article";
   }
-  .myInfo{
+  .articleInfo{
     display: none;
   }
 }
+
