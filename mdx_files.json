@@ -3,13 +3,13 @@
     "route": "notes/css/test1",
     "content": "import MdxLayout from '../../../components/layout/mdx-layout.tsx'\r\n \r\n# Welcome to my MDX page!\r\n \r\nexport default function MDXPage({ children }) {\r\n  return <MdxLayout>{children}</MdxLayout>\r\n}",
     "data": {
-      "title": "test2",
+      "title": "test1",
       "slug": "home"
     }
   },
   {
     "route": "notes/css/test2",
-    "content": "<h1>Hello world!</h1>",
+    "content": "import MdxLayout from '../../../components/layout/mdx-layout.tsx'\r\n \r\n# Welcome to my MDX page!\r\n \r\nexport default function MDXPage({ children }) {\r\n  return <MdxLayout>{children}</MdxLayout>\r\n}",
     "data": {
       "title": "test2",
       "slug": "home"
@@ -17,7 +17,7 @@
   },
   {
     "route": "notes/css/test3",
-    "content": "<h1>Hello world!</h1>",
+    "content": "import MdxLayout from '../../../components/layout/mdx-layout.tsx'\r\n \r\n# Welcome to my MDX page!\r\n \r\nexport default function MDXPage({ children }) {\r\n  return <MdxLayout>{children}</MdxLayout>\r\n}",
     "data": {
       "title": "test3",
       "slug": "home"
@@ -25,7 +25,7 @@
   },
   {
     "route": "notes/harmony/htest1",
-    "content": "<h1>Hello world!</h1>",
+    "content": "import MdxLayout from '../../../components/layout/mdx-layout.tsx'\r\n \r\n# Welcome to my MDX page!\r\n \r\nexport default function MDXPage({ children }) {\r\n  return <MdxLayout>{children}</MdxLayout>\r\n}",
     "data": {
       "title": "htest1",
       "slug": "home"

@@ -2,4 +2,10 @@
 title: test2
 slug: home
 ---
-<h1>Hello world!</h1>
+import MdxLayout from '../../../components/layout/mdx-layout.tsx'
+ 
+# Welcome to my MDX page!
+ 
+export default function MDXPage({ children }) {
+  return <MdxLayout>{children}</MdxLayout>
+}

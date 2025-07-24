@@ -5,24 +5,23 @@
   grid-template-areas: "myInfo navigationBar" "myInfo articleList";
   height: 100vh;
   width: 100vw;
+  /* background-image: url('../../public/sky.jpg'); */
 }
 
 .navigationBar {
   grid-area: navigationBar;
   padding: 10px;
-  background-color: aquamarine;
+  
 }
 
 .articleList {
   grid-area: articleList;
   padding: 10px;
-  background-color: aquamarine;
 }
 
 .myInfo {
   grid-area: myInfo;
   padding: 10px;
-  background-color: aquamarine;
 }
 
 @media (max-width: 600px) {

@@ -10,19 +10,16 @@
 .navBar {
   grid-area: navBar;
   padding: 10px;
-  background-color: aquamarine;
 }
 
 .article {
   grid-area: article;
   padding: 10px;
-  background-color: aquamarine;
 }
 
 .articleInfo {
   grid-area: articleInfo;
   padding: 10px;
-  background-color: aquamarine;
 }
 
 @media (max-width: 600px) {

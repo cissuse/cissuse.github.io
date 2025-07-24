@@ -4,7 +4,6 @@
   border: 2px;
   border-style: solid;
   border-color: white;
-  background-color: aqua;
   border-radius: 10px;
   padding: 10px;
   height: 100%;
@@ -12,21 +11,20 @@
 }
 
 .navigationBarContainer {
+  display: flex;
+  flex-direction: row;
   border: 2px solid white;
   border-radius: 10px;
   padding: 10px;
   height: 100%;
   width: 100%;
-  background-color: aqua;
+  
 }
 
 .articleListContainer {
-  border: 2px solid white;
   border-radius: 10px;
-  padding: 10px;
   height: calc(100vh - 100px);
   width: 100%;
-  background-color: aqua;
   overflow-y: auto;
 }
 
