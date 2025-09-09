@@ -1,54 +1,39 @@
-.list {
+.HomeLayout {
   display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 60px 1fr;
+  background-color: skyblue;
+  grid-template-areas: "info header" "info articles";
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  /* https://css-tricks.com/responsive-layouts-fewer-media-queries/ */
-  --w: 280px;
-  --n: 2;
-  gap: var(--size-gap);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(max(var(--w), 100%/ (var(--n) + 1) + 0.1%), 1fr)
-  );
-  margin-bottom: var(--size-gap);
-  margin-top: var(--size-gap);
+  padding: 0;
 }
 
-.listItem {
-  margin: 0;
+.HomeHeader {
+    grid-area: header;
+    background-color: aliceblue;
 }
 
-.listItem::marker {
-  color: #e95800;
+.HomeInfo {
+    grid-area: info;
+    background-color: beige;
 }
 
-.listItem:nth-child(2)::marker {
-  color: #159bf3;
+.HomeArticles {
+    grid-area: articles;
+    background-color: azure;
 }
 
-.listItem:nth-child(3)::marker {
-  color: #8eb814;
-}
-
-.listItem:nth-child(4)::marker {
-  color: #663399;
-}
-
-.listItemLink {
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.listItemDescription {
-  color: var(--color-text);
-  margin-bottom: 0;
-  margin-top: var(--space-1);
-}
-
-.textCenter {
-  text-align: center;
-}
-
-.intro {
-  max-width: none;
-  line-height: var(--line-height-loose);
+@media screen and (max-width: 780px){
+  .HomeLayout {
+    grid-template-columns: 100vw;
+    grid-template-rows: 100px 100vh;
+    grid-template-areas: "header" "articles";
+    height: 100vh + 100px;
+    width: 100vw;
+  }
+  .HomeInfo {
+    display: none;
+  }
 }
