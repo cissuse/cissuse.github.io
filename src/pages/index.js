@@ -2,11 +2,44 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import * as styles from "./index.module.css"
+import { useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
+const IndexPage = () => {
+  const articleList = useStaticQuery(graphql`
+    query {
+      allMdx {
+        edges {
+          node {
+            id
+            frontmatter {
+              date
+              slug
+              title
+            }
+            excerpt
+          }
+        }
+      }
+    }
+  `)
 
-const IndexPage = () => (
-  <Layout>
-  </Layout>
-)
+  return (
+    <Layout>
+      <div>
+        {articleList.allMdx.edges.map(({ node }) => (
+          <Link to={`/blog/${node.frontmatter.slug}`}>
+            <div className={styles.articleItem} key={JSON.stringify(node)}>
+              <div>{node.frontmatter.title}</div>
+              <div>{node.frontmatter.date}</div>
+              <div>{node.excerpt}</div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </Layout>
+  )
+}
 
 /**
  * Head export to define metadata for the page

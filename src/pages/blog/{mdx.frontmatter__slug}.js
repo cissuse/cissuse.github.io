@@ -1,20 +1,22 @@
-import * as React from 'react'
+import * as React from "react"
 
-import Seo from '../../components/seo'
-import { graphql } from 'gatsby'
-
+import Seo from "../../components/seo"
+import { graphql } from "gatsby"
+import Layout from "../../components/layout"
 const BlogPost = ({ data, children }) => {
   return (
-    <div>
-      <p>{data.mdx.frontmatter.date}</p>
-      {children}
-    </div>
+    <Layout>
+      <div>
+        <p>{data.mdx.frontmatter.date}</p>
+        {children}
+      </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: {eq: $id}) {
+    mdx(id: { eq: $id }) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")

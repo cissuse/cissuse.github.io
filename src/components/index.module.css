@@ -18,6 +18,14 @@
 .HomeInfo {
     grid-area: info;
     background-color: beige;
+    padding: 10px;
+}
+
+.InfoContainer {
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 .HomeArticles {
