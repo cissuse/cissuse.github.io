@@ -11,14 +11,22 @@
 }
 
 .HomeHeader {
-    grid-area: header;
-    background-color: aliceblue;
+  grid-area: header;
+  background-color: aliceblue;
+  padding: 10px;
+}
+
+.headerContainer {
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
 }
 
 .HomeInfo {
-    grid-area: info;
-    background-color: beige;
-    padding: 10px;
+  grid-area: info;
+  background-color: beige;
+  padding: 10px;
 }
 
 .InfoContainer {
@@ -29,11 +37,19 @@
 }
 
 .HomeArticles {
-    grid-area: articles;
-    background-color: azure;
+  grid-area: articles;
+  background-color: azure;
+  padding: 10px;
 }
 
-@media screen and (max-width: 780px){
+.mainContainer {
+  border: 2px solid black;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 780px) {
   .HomeLayout {
     grid-template-columns: 100vw;
     grid-template-rows: 100px 100vh;

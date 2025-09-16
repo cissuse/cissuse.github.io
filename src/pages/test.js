@@ -8,8 +8,8 @@ function Archiving() {
         className="container"
         style={{
           backgroundColor: "rgb(0, 23, 58)",
-          height: "100vh",
-          width: "100vw",
+          height: "100%",
+          width: "100%",
         }}
       >
         <div

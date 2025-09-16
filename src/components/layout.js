@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <div className={styles.HomeLayout}>
       <div className={styles.HomeHeader}>
-        <div>
+        <div className={styles.headerContainer}>
           <Header />
         </div>
       </div>
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
         </div>
       </div>
       <div className={styles.HomeArticles}>
-        <div>
+        <div className={styles.mainContainer}>
           {children}
         </div>
       </div>
