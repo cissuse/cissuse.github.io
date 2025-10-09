@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcissuse_github_io=self.webpackChunkcissuse_github_io||[]).push([[475],{8191:function(e,t,r){r.r(t);var i=r(6540),l=r(273);t.default=function(){return i.createElement(l.A,null,i.createElement("div",{className:"container",style:{backgroundColor:"rgb(0, 23, 58)",height:"100%",width:"100%"}},i.createElement("div",{className:"card",style:{height:"250px",width:"180px",borderColor:"blue",borderStyle:"solid",background:"linearGradient(45deg, blue, red);"}})))}}}]);
+//# sourceMappingURL=component---src-pages-test-js-1f8a324e6152ae460cd7.js.map
