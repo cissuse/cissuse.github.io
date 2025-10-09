@@ -45,8 +45,9 @@
 .mainContainer {
   border: 2px solid black;
   border-radius: 10px;
-  height: 100%;
+  height: calc(100vh - 84px);
   width: 100%;
+  overflow: auto
 }
 
 @media screen and (max-width: 780px) {
