@@ -5,9 +5,10 @@
   "version": "0.1.0",
   "author": "cissuse@outlook.com",
   "dependencies": {
-    "@ant-design/icons": "^6.1.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@mdx-js/react": "^3.1.1",
-    "antd": "^5.27.4",
+    "@mui/material": "^7.3.4",
     "gatsby": "^5.14.6",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",

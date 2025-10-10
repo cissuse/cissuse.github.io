@@ -4,11 +4,12 @@ import Layout from "../components/layout"
 import { Link } from "gatsby"
 import * as styles from "../pages/index.module.css"
 import { navigate } from "gatsby"
-import { Pagination } from "antd"
+import Pagination from '@mui/material/Pagination';
 export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMdx.edges
     const curPage = this.props.pageContext.currentPage
+    const pageNum = this.props.pageContext.numPages
     const handlePageChange = cur => {
       if (cur === 1) {
         navigate("/")
@@ -18,12 +19,7 @@ export default class BlogList extends React.Component {
     }
     return (
       <Layout>
-        <Pagination
-          defaultCurrent={curPage}
-          total={3}
-          pageSize={1}
-          onChange={handlePageChange}
-        />
+        <Pagination count={pageNum} defaultPage={curPage} onChange={(event, page) => handlePageChange(page)}/>
         {posts.map(({ node }) => (
           <Link to={`/blog/${node.frontmatter.slug}`}>
             <div className={styles.articleItem} key={JSON.stringify(node)}>

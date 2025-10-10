@@ -37,10 +37,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-  createPage({
-    path: "/tetete",
-    component: require.resolve("./src/templates/using-dsg.js"),
-    context: {},
-    defer: true,
-  })
 }
