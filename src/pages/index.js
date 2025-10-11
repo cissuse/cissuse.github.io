@@ -6,8 +6,8 @@ import * as styles from "./index.module.css"
 import { useStaticQuery, graphql } from "gatsby"
 import { Link } from "gatsby"
 import { navigate } from "gatsby"
-import Pagination from '@mui/material/Pagination';
-const PAGE_SIZE = 1;
+import Pagination from "@mui/material/Pagination"
+const PAGE_SIZE = 1
 const IndexPage = () => {
   const articleList = useStaticQuery(graphql`
     query {
@@ -27,7 +27,7 @@ const IndexPage = () => {
       }
     }
   `)
-  const articleNum = articleList.allMdx.totalCount;
+  const articleNum = articleList.allMdx.totalCount
   const pageNum = Math.ceil(articleNum / PAGE_SIZE)
 
   const handlePageChange = cur => {
@@ -40,7 +40,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Pagination count={pageNum} defaultPage={1} onChange={(event, page) => handlePageChange(page)}/>
       <div>
         {articleList.allMdx.edges.map(({ node }) => (
           <Link to={`/blog/${node.frontmatter.slug}`}>
@@ -52,6 +51,11 @@ const IndexPage = () => {
           </Link>
         ))}
       </div>
+      <Pagination
+        count={pageNum}
+        defaultPage={1}
+        onChange={(event, page) => handlePageChange(page)}
+      />
     </Layout>
   )
 }

@@ -10,26 +10,22 @@ import * as styles from "./index.module.css"
 import "./layout.css"
 import Info from "./home/info"
 import Header from "./home/header"
-
+import AppTheme from "../theme/AppTheme"
+import Container from "@mui/material/Container"
+import CssBaseline from "@mui/material/CssBaseline"
 const Layout = ({ children }) => {
   return (
-    <div className={styles.HomeLayout}>
-      <div className={styles.HomeHeader}>
-        <div className={styles.headerContainer}>
-          <Header />
-        </div>
-      </div>
-      <div className={styles.HomeInfo}>
-        <div className={styles.InfoContainer}>
-          <Info />
-        </div>
-      </div>
-      <div className={styles.HomeArticles}>
-        <div className={styles.mainContainer}>
-          {children}
-        </div>
-      </div>
-    </div>
+    <AppTheme>
+      <CssBaseline enableColorScheme />
+      <Header />
+      <Container
+        maxWidth="lg"
+        component="main"
+        sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
+      >
+        {children}
+      </Container>
+    </AppTheme>
   )
 }
 
