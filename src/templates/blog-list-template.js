@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import { Link } from "gatsby"
-import * as styles from "../pages/index.module.css"
 import { navigate } from "gatsby"
 import Pagination from "@mui/material/Pagination"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
 export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMdx.edges
@@ -19,15 +19,17 @@ export default class BlogList extends React.Component {
     }
     return (
       <Layout>
-        {posts.map(({ node }) => (
-          <Link to={`/blog/${node.frontmatter.slug}`}>
-            <div className={styles.articleItem} key={JSON.stringify(node)}>
-              <div>{node.frontmatter.title}</div>
-              <div>{node.frontmatter.date}</div>
-              <div>{node.excerpt}</div>
-            </div>
-          </Link>
-        ))}
+        <Grid container spacing={2}>
+          {posts.map(({ node }) => (
+            <Grid size={12}>
+              <Card key={JSON.stringify(node)} onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}>
+                <div>{node.frontmatter.title}</div>
+                <div>{node.frontmatter.date}</div>
+                <div>{node.excerpt}</div>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
         <Pagination
           count={pageNum}
           defaultPage={curPage}

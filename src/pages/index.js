@@ -2,11 +2,11 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import * as styles from "./index.module.css"
 import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
 import { navigate } from "gatsby"
 import Pagination from "@mui/material/Pagination"
+import Grid from "@mui/material/Grid"
+import Card from "@mui/material/Card"
 const PAGE_SIZE = 1
 const IndexPage = () => {
   const articleList = useStaticQuery(graphql`
@@ -40,17 +40,17 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <div>
+      <Grid container spacing={2}>
         {articleList.allMdx.edges.map(({ node }) => (
-          <Link to={`/blog/${node.frontmatter.slug}`}>
-            <div className={styles.articleItem} key={JSON.stringify(node)}>
+          <Grid size={12}>
+            <Card key={JSON.stringify(node)} onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}>
               <div>{node.frontmatter.title}</div>
               <div>{node.frontmatter.date}</div>
               <div>{node.excerpt}</div>
-            </div>
-          </Link>
+            </Card>
+          </Grid>
         ))}
-      </div>
+      </Grid>
       <Pagination
         count={pageNum}
         defaultPage={1}
