@@ -4,27 +4,60 @@
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-
-import * as React from "react"
-import * as styles from "./index.module.css"
-import "./layout.css"
-import Info from "./home/info"
-import Header from "./home/header"
-import AppTheme from "../theme/AppTheme"
-import Container from "@mui/material/Container"
+import React from "react"
 import CssBaseline from "@mui/material/CssBaseline"
+import AppTheme from "../theme/AppTheme"
+import "./layout.css"
+import Stack from "@mui/material/Stack"
+import Card from "@mui/material/Card"
+import Header from "./home/header"
+import Container from "@mui/material/Container"
+import Info from "./home/info"
+import Box from "@mui/material/Box"
 const Layout = ({ children }) => {
   return (
     <AppTheme>
       <CssBaseline enableColorScheme />
-      <Header />
-      <Container
-        maxWidth="lg"
-        component="main"
-        sx={{ display: "flex", flexDirection: "column", my: 16, gap: 4 }}
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ height: "100vh", width: "100vw", padding: 1 }}
       >
-        {children}
-      </Container>
+        <Card
+          sx={{
+            width: "200px",
+            height: "100%",
+            display: {
+              xs: "none",
+              sm: "none",
+              md: "block",
+              lg: "block",
+              xl: "block",
+            },
+          }}
+          only="sm"
+        >
+          <Info />
+        </Card>
+        <Container>
+          <Box
+            sx={{
+              height: "100%",
+              overflow: "auto",
+              "&::-webkit-scrollbar": {
+                height: '1px',
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "rgba(0,0,0,0.2)",
+                borderRadius: 4,
+              },
+            }}
+          >
+            <Header />
+            {children}
+          </Box>
+        </Container>
+      </Stack>
     </AppTheme>
   )
 }

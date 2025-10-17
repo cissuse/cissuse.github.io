@@ -7,11 +7,12 @@ import { navigate } from "gatsby"
 import Pagination from "@mui/material/Pagination"
 import Grid from "@mui/material/Grid"
 import Card from "@mui/material/Card"
+import Container from "@mui/material/Container"
 const PAGE_SIZE = 1
 const IndexPage = () => {
   const articleList = useStaticQuery(graphql`
     query {
-      allMdx(limit: 1, skip: 0) {
+      allMdx(limit: 30, skip: 0) {
         totalCount
         edges {
           node {
@@ -40,31 +41,32 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{mt: 2}}>
         {articleList.allMdx.edges.map(({ node }) => (
           <Grid size={12}>
-            <Card key={JSON.stringify(node)} onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}>
+            <Card
+              key={JSON.stringify(node)}
+              onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}
+              sx={{ backgroundColor: "transparent" }}
+            >
               <div>{node.frontmatter.title}</div>
               <div>{node.frontmatter.date}</div>
               <div>{node.excerpt}</div>
             </Card>
           </Grid>
         ))}
+        <Grid>
+          <Pagination
+            count={pageNum}
+            defaultPage={1}
+            onChange={(event, page) => handlePageChange(page)}
+          />
+        </Grid>
       </Grid>
-      <Pagination
-        count={pageNum}
-        defaultPage={1}
-        onChange={(event, page) => handlePageChange(page)}
-      />
     </Layout>
   )
 }
 
-/**
- * Head export to define metadata for the page
- *
- * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
- */
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage

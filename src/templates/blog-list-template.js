@@ -19,22 +19,27 @@ export default class BlogList extends React.Component {
     }
     return (
       <Layout>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ mt: 2 }}>
           {posts.map(({ node }) => (
             <Grid size={12}>
-              <Card key={JSON.stringify(node)} onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}>
+              <Card
+                key={JSON.stringify(node)}
+                onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}
+              >
                 <div>{node.frontmatter.title}</div>
                 <div>{node.frontmatter.date}</div>
                 <div>{node.excerpt}</div>
               </Card>
             </Grid>
           ))}
+          <Grid>
+            <Pagination
+              count={pageNum}
+              defaultPage={curPage}
+              onChange={(event, page) => handlePageChange(page)}
+            />
+          </Grid>
         </Grid>
-        <Pagination
-          count={pageNum}
-          defaultPage={curPage}
-          onChange={(event, page) => handlePageChange(page)}
-        />
       </Layout>
     )
   }
