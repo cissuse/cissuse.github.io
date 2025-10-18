@@ -10,7 +10,7 @@ const Info = () => (
   <div className={styles.infoContainer}>
     <Box className={styles.myInfo}>
       <StaticImage
-        src="../../images/avatar.jpg" // 图片路径
+        src="../../images/avatar1.png" // 图片路径
         alt="Avatar"
         placeholder="blurred"
         width={100}
@@ -32,8 +32,8 @@ const Info = () => (
       src="../../images/hanlu.jpg" // 图片路径
       alt="Avatar"
       placeholder="blurred"
-      width={150}
-      height={330}
+      width={200}
+      height={430}
       imgStyle={{
         borderRadius: "20px",
         objectFit: "cover", // 确保图片填充圆形区域

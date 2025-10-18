@@ -7,7 +7,8 @@ import { navigate } from "gatsby"
 import Pagination from "@mui/material/Pagination"
 import Grid from "@mui/material/Grid"
 import Card from "@mui/material/Card"
-import Container from "@mui/material/Container"
+import ArticleInfo from "../components/home/articleInfo"
+
 const PAGE_SIZE = 1
 const IndexPage = () => {
   const articleList = useStaticQuery(graphql`
@@ -21,6 +22,7 @@ const IndexPage = () => {
               date
               slug
               title
+              tag
             }
             excerpt
           }
@@ -41,18 +43,16 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Grid container spacing={2} sx={{mt: 2}}>
+      <Grid container spacing={2} sx={{ mt: 2 }}>
         {articleList.allMdx.edges.map(({ node }) => (
           <Grid size={12}>
-            <Card
-              key={JSON.stringify(node)}
-              onClick={() => navigate(`/blog/${node.frontmatter.slug}`)}
-              sx={{ backgroundColor: "transparent" }}
-            >
-              <div>{node.frontmatter.title}</div>
-              <div>{node.frontmatter.date}</div>
-              <div>{node.excerpt}</div>
-            </Card>
+            <ArticleInfo
+              tag={node.frontmatter.tag}
+              slug={node.frontmatter.slug}
+              title={node.frontmatter.title}
+              date={node.frontmatter.date}
+              excerpt={node.excerpt}
+            />
           </Grid>
         ))}
         <Grid>

@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
       >
         <Card
           sx={{
-            width: "200px",
+            width: "250px",
             height: "100%",
             display: {
               xs: "none",
@@ -39,24 +39,16 @@ const Layout = ({ children }) => {
         >
           <Info />
         </Card>
-        <Container>
-          <Box
-            sx={{
-              height: "100%",
-              overflow: "auto",
-              "&::-webkit-scrollbar": {
-                height: '1px',
-              },
-              "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "rgba(0,0,0,0.2)",
-                borderRadius: 4,
-              },
-            }}
-          >
-            <Header />
-            {children}
-          </Box>
-        </Container>
+        <Box
+          sx={{
+            height: "100%",
+            width: "100%",
+            overflow: "auto",
+          }}
+        >
+          <Header />
+          {children}
+        </Box>
       </Stack>
     </AppTheme>
   )
