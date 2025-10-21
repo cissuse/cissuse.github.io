@@ -4,6 +4,7 @@ import Seo from "../../components/seo"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 const BlogPost = ({ data, children }) => {
+  
   return (
     <Layout>
       <div>

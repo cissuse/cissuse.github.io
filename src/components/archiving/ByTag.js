@@ -2,6 +2,9 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
+import { navigate } from "gatsby"
+import Container from "@mui/material/Container"
+import Button from "@mui/material/Button"
 function ByTag() {
   const tagInfo = useStaticQuery(graphql`
     query {
@@ -35,10 +38,10 @@ function ByTag() {
     console.log("error:", error)
   }
   return (
-    <Box maxWidth='sm'>
-        {Array.from(tagMap.keys()).map(keyTag => (
-          <Card >{keyTag}</Card>
-        ))}
+    <Box>
+      {Array.from(tagMap.keys()).map(tag => (
+        <Card onClick={() => navigate('/archiving/tag', {state: {tags: tagMap.get(tag)}})}>{tag}</Card>
+      ))}
     </Box>
   )
 }

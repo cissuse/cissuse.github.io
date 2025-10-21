@@ -7,6 +7,7 @@ import TimelineConnector from "@mui/lab/TimelineConnector"
 import TimelineContent from "@mui/lab/TimelineContent"
 import TimelineDot from "@mui/lab/TimelineDot"
 import Box from "@mui/material/Box"
+import { navigate } from "gatsby"
 function ByTime() {
   const articleTimeArray = useStaticQuery(graphql`
     query {
@@ -43,12 +44,18 @@ function ByTime() {
     <Box>
       <Timeline>
         {Array.from(articleTimeMap.keys()).map(yearMonth => (
-          <TimelineItem>
+          <TimelineItem key={yearMonth}>
             <TimelineSeparator>
               <TimelineDot />
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent>{yearMonth}</TimelineContent>
+            <TimelineContent
+              onClick={() =>
+                navigate("/archiving/time", {state: {times: articleTimeMap.get(yearMonth)}})
+              }
+            >
+              {yearMonth}
+            </TimelineContent>
           </TimelineItem>
         ))}
       </Timeline>

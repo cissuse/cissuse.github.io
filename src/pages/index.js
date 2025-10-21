@@ -45,13 +45,14 @@ const IndexPage = () => {
     <Layout>
       <Grid container spacing={2} sx={{ mt: 2 }}>
         {articleList.allMdx.edges.map(({ node }) => (
-          <Grid size={12}>
+          <Grid key={node.id} size={12}>
             <ArticleInfo
               tag={node.frontmatter.tag}
               slug={node.frontmatter.slug}
               title={node.frontmatter.title}
               date={node.frontmatter.date}
               excerpt={node.excerpt}
+              key={node.id}
             />
           </Grid>
         ))}
