@@ -5,8 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Grid from "@mui/material/Grid"
 import ArticleInfo from "../../../components/home/articleInfo"
 function ByArticleTime() {
-  const location = useLocation()
-  const stateParams = location.state || {}
   // console.log("stateParams1:", stateParams.times)
   const articleList = useStaticQuery(graphql`
     query {
@@ -27,10 +25,12 @@ function ByArticleTime() {
     }
   `)
   const curArticles = articleList.allMdx.edges
+  const location = useLocation()
+  const stateParams = location.state || {times: []}
+  const stateArray = Array.from(stateParams.times)
   const filterArticles = curArticles.filter(node =>
-    stateParams.times.has(node.node.frontmatter.date)
+    stateArray.includes(node.node.frontmatter.date)
   )
-  console.log(filterArticles)
   return (
     <Layout>
       <Grid container spacing={2} sx={{ mt: 2 }}>

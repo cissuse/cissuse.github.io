@@ -6,7 +6,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from "gatsby"
 import Pagination from "@mui/material/Pagination"
 import Grid from "@mui/material/Grid"
-import Card from "@mui/material/Card"
 import ArticleInfo from "../components/home/articleInfo"
 
 const PAGE_SIZE = 1
@@ -32,7 +31,6 @@ const IndexPage = () => {
   `)
   const articleNum = articleList.allMdx.totalCount
   const pageNum = Math.ceil(articleNum / PAGE_SIZE)
-
   const handlePageChange = cur => {
     if (cur === 1) {
       navigate("/")

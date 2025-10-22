@@ -24,10 +24,11 @@ function ByArticleTag() {
     }
   `)
   const location = useLocation()
-  const stateParams = location.state || {}
+  const stateParams = location.state || {tags: []}
+  const stateArray = Array.from(stateParams.tags)
   const curArticles = articleList.allMdx.edges
   const filterArticles = curArticles.filter(node =>
-    stateParams.tags.has(node.node.frontmatter.tag)
+    stateArray.includes(node.node.frontmatter.tag)
   )
   return (
     <Layout>
